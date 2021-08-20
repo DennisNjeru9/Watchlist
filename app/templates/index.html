@@ -1,6 +1,7 @@
+{% extends 'base.html' %}
 {% import 'macros.html' as macro %}
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -9,7 +10,7 @@
         {% else %}
         <title>Welcome to the best Movie Review website</title>
         {% endif %}
-    </head>
+    </head> -->
     <!-- <body> -->
 
         <!-- Popular Movie Section -->
@@ -37,21 +38,30 @@
         </ul>
     </body> -->
 
-    <body>
-        <!-- Popular Movie -->
-        <h3>Popular Movies</h3>
-        <ul>
-            {{ macro.displayMovieList(popular) }}
-        </ul>
-        <!-- Upcoming Movie -->
-        <h3>Upcoming Movies</h3>
-        <ul>
-            {{ macro.displayMovieList(upcoming) }}
-        </ul>
-        <!-- Now Showing -->
-        <h3>Now Showing</h3>
-        <ul>
-            {{ macro.displayMovieList(now_playing)}}
-        </ul>
-    </body>
-</html>
+    <!-- <body> -->
+
+<!-- Content block -->
+{% block content %}
+
+<!-- Popular Movie -->
+<h3>Popular Movies</h3>
+<ul>
+    {{ macro.displayMovieList(popular) }}
+</ul>
+<!-- Upcoming Movie -->
+<h3>Upcoming Movies</h3>
+<ul>
+    {{ macro.displayMovieList(upcoming) }}
+</ul>
+<!-- Now Showing -->
+<h3>Now Showing</h3>
+<ul>
+    {{ macro.displayMovieList(now_playing)}}
+</ul>
+
+<!-- End Block -->
+{% endblock %}
+
+
+    <!-- </body>
+</html> -->
