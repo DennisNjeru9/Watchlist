@@ -1,6 +1,9 @@
 from flask import render_template
+from flask.helpers import url_for
+from werkzeug.utils import redirect
 from app import app
 from .request import get_movies,get_movie,search_movie
+from app import request
 
 #Views
 @app.route('/')
@@ -13,8 +16,15 @@ def index():
     popular_movies = get_movies('popular')
     upcoming_movie = get_movies('upcoming')
     now_showing = get_movies('now_playing')
+
     title = 'Home - Welcome to the best Movie Review Website Online'
-    return render_template('index.html', title = title, popular = popular_movies, upcoming = upcoming_movie, now_playing = now_showing)
+
+    search_movie = request.args.get('movie_query')
+
+    if search_movie:
+        return redirect(url_for('search',movie_name=search_movie))
+    else:
+        return render_template('index.html', title = title, popular = popular_movies, upcoming = upcoming_movie, now_playing = now_showing)
 
 @app.route('/movie/<int:id>')
 def movie(id):
@@ -36,4 +46,3 @@ def search(movie_name):
     searched_movies = search_movie(movie_name_format)
     title = f'search results for {movie_name}'
     return render_template('search.html',title = title, movies = searched_movies)
-    
