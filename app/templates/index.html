@@ -57,21 +57,33 @@
     </form>
 </div>
 
-<!-- Popular Movie -->
-<h3>Popular Movies</h3>
-<ul>
-    {{ macro.displayMovieList(popular) }}
-</ul>
-<!-- Upcoming Movie -->
-<h3>Upcoming Movies</h3>
-<ul>
-    {{ macro.displayMovieList(upcoming) }}
-</ul>
-<!-- Now Showing -->
-<h3>Now Showing</h3>
-<ul>
-    {{ macro.displayMovieList(now_playing)}}
-</ul>
+<div class="container">
+
+    <!-- Popular Movie -->
+    <div class="row">
+        <h3>Popular Movies</h3>
+        <ul>
+            {{ macro.displayMovieList(popular) }}
+        </ul>
+    </div>
+
+    <!-- Upcoming Movie -->
+    <div class="row">
+        <h3>Upcoming Movies</h3>
+        <ul>
+            {{ macro.displayMovieList(upcoming) }}
+        </ul>
+    </div>
+
+    <!-- Now Showing -->
+    <div class="row">
+        <h3>Now Showing</h3>
+        <ul>
+            {{ macro.displayMovieList(now_playing)}}
+        </ul>
+    </div>
+
+</div>
 
 <!-- End Block -->
 {% endblock %}
